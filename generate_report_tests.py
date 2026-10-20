@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from preparingData import get_train_test_split
+from src.preparingData import get_train_test_split
 from src.models import Perceptron, Adaline, evaluate_predictions
 from src.visualization import plot_decision_boundary
 
