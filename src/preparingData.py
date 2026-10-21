@@ -1,5 +1,9 @@
 import pandas as pd
 
+# Read data and map categorical mapping
+data = pd.read_csv('penguins.csv')
+data['OriginLocation'] = data['OriginLocation'].map({'Torgersen': 0, 'Biscoe': 1, 'Dream': 2})
+
 def get_train_test_split(data, class1, class2, feature1, feature2, train_size=30, seed=42):
     subset = data[data['Species'].isin([class1, class2])].copy()
     subset['Target'] = subset['Species'].map({class1: 1, class2: -1})
@@ -40,10 +44,6 @@ def get_train_test_split(data, class1, class2, feature1, feature2, train_size=30
     y_test  = testData['Target'].to_numpy(dtype=int)
 
     return X_train, y_train, X_test, y_test
-
-# Read data and map categorical mapping
-data = pd.read_csv('penguins.csv')
-data['OriginLocation'] = data['OriginLocation'].map({'Torgersen': 0, 'Biscoe': 1, 'Dream': 2})
 
 # Testing the function
 if __name__ == "__main__":
