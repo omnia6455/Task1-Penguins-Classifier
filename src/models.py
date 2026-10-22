@@ -35,6 +35,8 @@ class Perceptron:
                 if error != 0.0:
                     errors_this_epoch += 1
             self.errors.append(errors_this_epoch)
+            if errors_this_epoch == 0:
+                break
         return self
 
     def predict(self, X):
